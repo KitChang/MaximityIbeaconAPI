@@ -67,6 +67,11 @@ module.exports = {
         var major = req.param('major');
         var minor = req.param('minor');
         device.findOne({uuid: uuid, major: major, minor: minor}).exec(function(err, result){
+            if(!result){
+                res.status(400);
+                res.end();
+                return;
+            }
             var access = result.access;
             access = (!access) ? 0 : access;
             access = parseInt(access);
@@ -76,11 +81,17 @@ module.exports = {
                 if(err){
                     res.status(500);
                     res.end();
+                    return;
                 }
                 res.write(result.id);
                 res.end();
                 });
         });
+    }, 
+    updateAccess: function(req, res){
+        device.update({}, {access: 0}).exec(function(err, result){
+            res.end();
+        })
     }
     
 };

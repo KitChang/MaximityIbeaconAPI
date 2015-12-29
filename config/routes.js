@@ -39,6 +39,10 @@ module.exports.routes = {
       controller: 'DeviceController',
       action: 'cbjTag'
   },
+  'get /device/updateAccess': {
+      controller: 'DeviceController',
+      action: 'updateAccess'
+  },
   'get /device': {
       controller: 'DeviceController',
       action: 'find'
@@ -54,7 +58,8 @@ module.exports.routes = {
   'get /device/:id': {
       controller: 'DeviceController',
       action: 'findOne'
-  }
+  },
+
   
     
 

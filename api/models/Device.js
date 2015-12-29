@@ -26,7 +26,8 @@ module.exports = {
   },
   access: {
     type: 'integer',
-    defaultsTo: ''
+    defaultsTo: 0,
+    required: true
   }
   }
 }
