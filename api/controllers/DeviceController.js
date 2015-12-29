@@ -58,6 +58,17 @@ module.exports = {
     findOne: function(req, res){
         var id = req.param("id");
         device.findOne({id: id}).exec(function(err, result){
+            if(err){
+                res.status(500);
+                res.end();
+                return;
+            }
+            if(!result){
+                res.status(400);
+                res.end();
+                return;
+            }
+            res.status(200);
             res.json(result);
             res.end();
         });
