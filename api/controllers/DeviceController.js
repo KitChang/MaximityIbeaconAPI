@@ -9,7 +9,7 @@ module.exports = {
 	cbjTag: function(req, res){
         var id = req.param("id");
         var cbjTag = req.param("cbjTag");
-        device.update({id: id}, {cbjTag: cbTtag}).exec(function(err, doc){
+        device.update({id: id}, {cbjTag: cbjTag}).exec(function(err, doc){
             if (err) {
                 res.end();
                 return;

@@ -9,16 +9,24 @@ module.exports = {
   identity: 'device',
   attributes: {
   name: {
-    type: 'string'
+    type: 'string',
   },
   uuid: {
-    type: 'string'
+    type: 'string',
   },
-  cbj_tag: {
-    type: 'string'
+  major: {
+    type: 'string',
+  },
+  minor: {
+    type: 'string',
+  },
+  cbjTag: {
+    type: 'string',
+    defaultsTo: ''
   },
   access: {
-    type: 'integer'
+    type: 'integer',
+    defaultsTo: ''
   }
   }
 }
