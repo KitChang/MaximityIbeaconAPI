@@ -44,11 +44,17 @@ module.exports = {
         }
         var idKeys; idArr = [];
         if(id){
-            idKeys = Object.keys(id);
-            while(idKeys.length){
-                idArr.push(id[idKeys.pop()])
-            }
+            if(id.toString()=="[object Object]"){
+                 idKeys = Object.keys(id);
+                while(idKeys.length){
+                    idArr.push(id[idKeys.pop()])
+                }
             option.id = idArr;
+            }else{
+              option.id = id;  
+            }
+            
+           
         }
         device.find(option).exec(function(err, results){
             if(err){
