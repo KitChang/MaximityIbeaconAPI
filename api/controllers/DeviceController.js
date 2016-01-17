@@ -42,8 +42,13 @@ module.exports = {
         if(street){
             option.street = street;
         }
+        var idKeys; idArr = [];
         if(id){
-            option.id = id;
+            idKeys = Object.keys(id);
+            while(idKeys.length){
+                idArr.push(id[idKeys.pop()])
+            }
+            option.id = idArr;
         }
         device.find(option).exec(function(err, results){
             if(err){
